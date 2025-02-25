@@ -1,0 +1,29 @@
+// React.js To-Do App (Simple UI with state management)
+import React, { useState } from "react";
+
+const TodoApp = () => {
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState("");
+
+  const addTask = () => {
+    if (input) {
+      setTasks([...tasks, input]);
+      setInput("");
+    }
+  };
+
+  return (
+    <div>
+      <h2>To-Do List</h2>
+      <input value={input} onChange={(e) => setInput(e.target.value)} />
+      <button onClick={addTask}>Add Task</button>
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default TodoApp;
