@@ -1,0 +1,15 @@
+function debounce(func, delay) {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func(...args), delay);
+  };
+}
+
+const handleSearch = debounce((query) => {
+  console.log("Searching for:", query);
+}, 300);
+
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  handleSearch(e.target.value);
+});
