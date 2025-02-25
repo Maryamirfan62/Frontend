@@ -1,0 +1,23 @@
+import React from "react";
+
+type CardProps = {
+  title: string;
+  value: string;
+};
+
+const DashboardCard: React.FC<CardProps> = ({ title, value }) => (
+  <div style={{ border: "1px solid #ddd", padding: "10px", margin: "5px" }}>
+    <h3>{title}</h3>
+    <p>{value}</p>
+  </div>
+);
+
+const Dashboard: React.FC = () => (
+  <div>
+    <h2>Dashboard</h2>
+    <DashboardCard title="Users" value="150" />
+    <DashboardCard title="Revenue" value="$5000" />
+  </div>
+);
+
+export default Dashboard;
